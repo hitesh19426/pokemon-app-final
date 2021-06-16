@@ -5,8 +5,7 @@ import 'package:pokemon_app/screens/datail.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MaterialApp(
-      // home: Home(),
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
         '/': (context) => Home(),
