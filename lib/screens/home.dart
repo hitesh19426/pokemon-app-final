@@ -18,7 +18,6 @@ class _HomeState extends State<Home> {
   }
 
   Widget afterLoaded() {
-    // return PokemonCard(pokemondata: pokemondata);
     return GridView.count(
       crossAxisCount: 2,
       crossAxisSpacing: 0,
@@ -33,6 +32,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: const Text('Home Screen'),
       ),
       body: (loaded ? afterLoaded() : beforeLoaded()),
@@ -41,16 +41,6 @@ class _HomeState extends State<Home> {
           dynamic pokemon = await Navigator.pushNamed(context, '/loading');
           if (pokemon != null) {
             pokelist = pokemon['pokemonlist'];
-            // pokemondata = {
-            //   'pokemonlist': pokemon,
-            //   // 'id': pokemon['id'],
-            //   // 'name': pokemon['name'],
-            //   // 'baseExp': pokemon['baseExp'],
-            //   // 'height': pokemon['height'],
-            //   // 'order': pokemon['order'],
-            //   // 'weight': pokemon['weight'],
-            //   // 'imgurl': pokemon['imgurl'],
-            // };
           }
           setState(() {
             loaded = true;
@@ -77,20 +67,16 @@ class PokemonCard extends StatelessWidget {
       child: InkWell(
         splashColor: Colors.yellow[100],
         onTap: () {
-          print('${pokemon.name}');
+          // print('${pokemon.name}');
+          Navigator.pushNamed(context, '/detail', arguments: {
+            'pokemon': pokemon,
+          });
         },
         child: Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              // height: 80,
-              // width: 100,
-              child: Image.network(pokemon.imgurl),
-            ),
-            // SizedBox(
-            //   height: 3.0,
-            // ),
+            Container(child: Image.network(pokemon.imgurl)),
             Padding(
               padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 5.0),
               child: Text(
@@ -99,7 +85,6 @@ class PokemonCard extends StatelessWidget {
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 15.0,
-                  // fontStyle: FontStyle.italic,
                 ),
               ),
             ),

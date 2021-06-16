@@ -11,14 +11,12 @@ class Pokemon {
   String imgurl = "";
   List<String> types = [];
 
-  Pokemon({required this.id}) {
-    print('pokemon with id = $id created');
-  }
+  Pokemon({required this.id});
 
   Future<void> getData() async {
     try {
       String url = 'https://pokeapi.co/api/v2/pokemon/$id/';
-      print('url = $url');
+      // print('url = $url');
 
       Response response = await get(Uri.parse(url));
       Map pokeData = jsonDecode(response.body);
@@ -34,15 +32,11 @@ class Pokemon {
       imgurl = pokeData['sprites']['front_default'];
 
       for (var poketype in pokeData['types']) {
-        // print(poketype['type']['name']);
-        types.add(poketype['type']['name']);
+        String typetemp = poketype['type']['name'];
+        typetemp =
+            typetemp.substring(0, 1).toUpperCase() + typetemp.substring(1);
+        types.add(typetemp);
       }
-
-      // print(name);
-      // print(baseExp);
-      // print(height);
-      // print(order);
-      // print(weight);
     } catch (error) {
       print(error);
       name = 'null';
