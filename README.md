@@ -1,7 +1,6 @@
 # pokemon_app
 
-The app shows a very basic pokemox. It displays a home screen from which you can load the data of all Gen1 pokemo
-n. The loading screen shows a circle spinner which moves while the data is loaded. The data is loaded using pokemon api dynamically (means we are not storing data). Data is fetched only when user loads it.
+The app shows a very basic pokemox. It displays a home screen from which you can load the data of all Gen1 pokemon. The loading screen shows a circle spinner which moves while the data is loaded. The data is loaded using pokemon api dynamically (means we are not storing data). Data is fetched only when user loads it.
 
 After you have fetched the data, you get a grid view of all pokemons arranged in cards. The cards are tapable and shows you detailed information of the pokemon on tapped.
 

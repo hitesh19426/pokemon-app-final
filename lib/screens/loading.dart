@@ -12,7 +12,7 @@ class Loading extends StatefulWidget {
 class _LoadingState extends State<Loading> {
   List<Pokemon> pokemonlist = [];
   static const int start = 1;
-  static const int end = 151;
+  static const int end = 4;
 
   void setupData() async {
     for (int i = start; i <= end; i++) {

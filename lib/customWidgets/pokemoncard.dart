@@ -4,10 +4,7 @@ import 'package:pokemon_app/services/api/pokemon.dart';
 class PokemonCard extends StatelessWidget {
   final Pokemon pokemon;
 
-  const PokemonCard({
-    Key? key,
-    required this.pokemon,
-  }) : super(key: key);
+  const PokemonCard({required this.pokemon});
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +20,27 @@ class PokemonCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(child: Image.network(pokemon.imgurl)),
+            // Expanded(
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //       image: DecorationImage(
+            //         image: NetworkImage(pokemon.imgurl),
+            //         fit: BoxFit.contain,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            Container(
+              child: Image.network(pokemon.imgurl),
+            ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 5.0),
+              padding: const EdgeInsets.fromLTRB(10.0, 0.0, 20.0, 5.0),
               child: Text(
                 pokemon.name,
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 15.0,
+                  fontSize: 25.0,
                 ),
               ),
             ),

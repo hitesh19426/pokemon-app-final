@@ -23,6 +23,8 @@ class _HomeState extends State<Home> {
       crossAxisCount: 2,
       crossAxisSpacing: 0,
       mainAxisSpacing: 0.0,
+      padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
+      addRepaintBoundaries: true,
       children: List.generate(pokelist.length, (index) {
         return PokemonCard(pokemon: pokelist[index]);
       }),
